@@ -1,0 +1,14 @@
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: |
+          kubectl apply -f deployment1.yaml
+          kubectl apply -f deployment1.yaml
+          kubectl apply -f service.yaml
+
+      - name: Scale Deployments
+        run: |
+          kubectl scale deployment/python-app-v1 --replicas=9
+          kubectl scale deployment/python-app-v2 --replicas=1

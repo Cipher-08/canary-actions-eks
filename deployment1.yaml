@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app-v1
+spec:
+  replicas: 9
+  selector:
+    matchLabels:
+      app: python-app
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: python-app
+        version: v1
+    spec:
+      containers:
+      - name: python-app
+        image: sakshamawasthi/python-version1:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: VERSION
+          value: "v1"

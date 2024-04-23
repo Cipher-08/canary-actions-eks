@@ -22,8 +22,8 @@ jobs:
 
       - name: Deploy
         run: |
-          kubectl apply -f deployment-v1.yaml
-          kubectl apply -f deployment-v2.yaml
+          kubectl apply -f deployment1.yaml
+          kubectl apply -f deployment2.yaml
           kubectl apply -f service.yaml
 
       - name: Scale Deployments

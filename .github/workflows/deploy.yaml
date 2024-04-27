@@ -1,4 +1,4 @@
-name: Deploy to EKS Canary
+name: Deploy to EKS
 
 on:
   push:
@@ -28,20 +28,11 @@ jobs:
       run: |
         aws eks --region us-east-1 update-kubeconfig --name rollingback
 
-    - name: Deploy Version 1
+    - name: Deploy to Kubernetes
       run: |
-        kubectl apply -f deployment1.yaml
+        kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
-
-    - name: Deploy Version 2 (Canary)
-      run: |
-        kubectl apply -f deployment2.yaml
-        kubectl scale deployment/python-app-v2 --replicas=1
 
     - name: Get service info
       run: |
          kubectl get service python-app-service
-
-    - name: Monitor Canary
-      run: |
-         echo "Monitor canary version v2 for stability and performance"

@@ -31,4 +31,10 @@ jobs:
     - name: Deploy to Kubernetes
       run: |
         kubectl apply -f deployment.yaml
+        kubectl apply -f service.yaml
+
+    - name: Get service info
+      run: |
+         kubectl get service python-app-service
+
 

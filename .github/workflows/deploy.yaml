@@ -1,32 +1,34 @@
-name: Deploy and Scale Kubernetes Application
+name: Deploy to EKS
 
 on:
   push:
     branches:
-      - main  # Trigger the workflow on push events to the main branch.
-  pull_request:
-    branches:
-      - main  # Trigger the workflow on pull requests targeted at the main branch.
+      - main
 
 jobs:
-  deployment:
-    runs-on: ubuntu-latest  # Specifies the runner environment.
+  build-and-deploy:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2  # Checks out your repository under $GITHUB_WORKSPACE, so your workflow can access it.
+    - name: Checkout Code
+      uses: actions/checkout@v2
 
-      - name: Set up Kubectl
-        uses: azure/setup-kubectl@v1  # Sets up kubectl CLI on the runner.
-        with:
-          version: 'latest'  # Optionally specify a specific version of kubectl, if needed.
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
 
-      - name: Deploy
-        run: |
-          kubectl apply -f deployment1.yaml
-          kubectl apply -f deployment2.yaml
-          kubectl apply -f service.yaml
+    - name: Install kubectl
+      run: |
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
-      - name: Scale Deployments
-        run: |
-          kubectl scale deployment/python-app-v1 --replicas=9
-          kubectl scale deployment/python-app-v2 --replicas=1
+    - name: Set up Kubeconfig
+      run: |
+        aws eks --region us-east-1 update-kubeconfig --name rollingback
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f deployment.yaml
+

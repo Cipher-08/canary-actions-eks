@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: python-app-service
 spec:
-  type: ClusterIP
-  ports:
-  - port: 80
-    targetPort: 80
-    protocol: TCP
   selector:
     app: python-app
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80

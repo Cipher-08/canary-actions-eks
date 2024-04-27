@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: sakshamawasthi/python-version1:v1
+        image: sakshamawasthi/python-version1:v2
         ports:
         - containerPort: 80
         resources:

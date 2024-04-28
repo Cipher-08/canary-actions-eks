@@ -20,9 +20,6 @@ First, deploy the new version of your software to a section of your environment 
 
 
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
 ![alt_text](images/1.png "image_tooltip")
 
 
@@ -30,20 +27,14 @@ After testing—be it functional, unit, or integration tests—and once your use
 
 
 
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.png "image_tooltip")
+![alt_text](images/2.png "image_tooltip")
 
 
 As confidence grows, gradually increase the scope of the rollout by deploying more pods and broadening the user base that accesses the new version. Once the canary phase confirms stability, a new deployment is scaled up to serve all users, marking the successful completion of the rollout process.
 
 
 
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.png "image_tooltip")
+![alt_text](images/3.png "image_tooltip")
 
 
 
@@ -57,10 +48,7 @@ To implement a canary deployment, you need two deployment configurations: one fo
 
 
 
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image5.jpg "image_tooltip")
+![alt_text](images/4.jpg "image_tooltip")
 
 
 **deployment2.yaml - Canary Version**
@@ -69,10 +57,8 @@ This deployment is the new version you are testing, initially receiving a small 
 
 
 
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image6.jpg "image_tooltip")
+![alt_text](images/5.jpg "image_tooltip")
 
 
 
@@ -82,18 +68,17 @@ Apply the Deployments: Start by deploying both versions using kubectl.
 
 
 
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image7.png "image_tooltip")
 
 
 
+![alt_text](images/6.png "image_tooltip")
 
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image8.png "image_tooltip")
+
+
+
+![alt_text](images/7.png "image_tooltip")
 
 
 
@@ -105,20 +90,19 @@ _Kubectl scale deployment/python-app-v1 —replicas=5_
 
 
 
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image9.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image9.png "image_tooltip")
+![alt_text](images/8.png "image_tooltip")
 
 
 _Kubectl scale deployment/python-app-v2 —replicas=5_
 
 
 
-<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image10.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image10.png "image_tooltip")
+
+![alt_text](images/9.png "image_tooltip")
 
 
 
@@ -130,10 +114,10 @@ _kubectl scale deployment/python-app-v2 --replicas=0  _
 
 
 
-<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image11.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image11.png "image_tooltip")
+
+![alt_text](images/10.png "image_tooltip")
 
 
 
@@ -151,10 +135,8 @@ _eksctl create cluster --name rollingback --region us-east-1 --nodegroup-name ek
 
 
 
-<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image12.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image12.png "image_tooltip")
+![alt_text](images/11.png "image_tooltip")
 
 
 This command creates an EKS cluster named "rollingback" with a managed node group.
@@ -165,10 +147,7 @@ Create a .github/workflows/deploy.yml file in your repository to define the CI/C
 
 
 
-<p id="gdcalert13" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image13.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert14">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image13.jpg "image_tooltip")
+![alt_text](images/12.jpg "image_tooltip")
 
 
 **Step 3: Set Up GitHub Secrets**
@@ -177,10 +156,8 @@ Configure the required AWS credentials in your GitHub repository's secrets to se
 
 
 
-<p id="gdcalert14" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image14.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert15">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image14.png "image_tooltip")
+![alt_text](images/13.png "image_tooltip")
 
 
 **Step 4: Deploy and Verify**
@@ -189,10 +166,8 @@ You can see the progress and results of your deployment workflow by going to the
 
 
 
-<p id="gdcalert15" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image15.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert16">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image15.png "image_tooltip")
+![alt_text](images/14.png "image_tooltip")
 
 
 The command _aws eks --region us-east-1 update-kubeconfig --name rollingback _configures kubectl to interact with your AWS EKS cluster, updating the kubeconfig file with the necessary access details.
@@ -241,10 +216,9 @@ Before setting up a rollout deployment, let's establish our starting point. We h
 
 
 
-<p id="gdcalert16" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image16.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert17">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image16.jpg "image_tooltip")
+![alt_text](images/15.jpg "image_tooltip")
 
 
 This deployment.yaml specifies the rolling update strategy, essential for implementing rollout deployments. Here's what each part of the strategy accomplishes:
@@ -261,10 +235,8 @@ _kubectl apply -f deployment.yaml_
 
 
 
-<p id="gdcalert17" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image17.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert18">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image17.png "image_tooltip")
+![alt_text](images/16.png "image_tooltip")
 
 
 **Step 3: Monitor the Rollout Status**
@@ -275,10 +247,8 @@ _kubectl rollout status deployment/python-app_
 
 
 
-<p id="gdcalert18" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image18.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert19">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image18.png "image_tooltip")
+![alt_text](images/17.png "image_tooltip")
 
 
 This command will provide real-time feedback on the deployment status, showing whether the current rollout out is succeeding or if there are any issues.
@@ -289,10 +259,8 @@ When you need to update your application, change the image in the deployment YAM
 
 
 
-<p id="gdcalert19" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image19.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert20">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image19.jpg "image_tooltip")
+![alt_text](images/18.jpg "image_tooltip")
 
 
 Then reapply the deployment:
@@ -309,10 +277,7 @@ _kubectl get pods -l app=python-app -o wide_
 
 
 
-<p id="gdcalert20" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image20.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert21">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image20.png "image_tooltip")
+![alt_text](images/19.png "image_tooltip")
 
 
 This command lists all pods with the label app: python-app, showing their status and the node they are running on.
@@ -325,10 +290,7 @@ _kubectl rollout undo deployment/python-app_
 
 
 
-<p id="gdcalert21" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image21.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert22">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image21.png "image_tooltip")
+![alt_text](images/20.png "image_tooltip")
 
 
 This command in the command line reverts the deployment to the previous stable version.
@@ -342,20 +304,16 @@ Assuming you've followed those steps, the GitHub Actions workflow file is the on
 
 
 
-<p id="gdcalert22" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image22.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert23">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image22.jpg "image_tooltip")
+![alt_text](images/21.jpg "image_tooltip")
 
 
 You can see the progress and results of your deployment workflow by going to the "Actions" tab in your GitHub repository.
 
 
 
-<p id="gdcalert23" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image23.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert24">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image23.png "image_tooltip")
+![alt_text](images/22.png "image_tooltip")
 
 
 The command _aws eks --region us-east-1 update-kubeconfig --name rollingback _configures kubectl to interact with your AWS EKS cluster, updating the kubeconfig file with the necessary access details.

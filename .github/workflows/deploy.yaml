@@ -1,38 +1,38 @@
-name: Deploy to EKS
-
+name: build and deploy
 on:
   push:
     branches:
       - main
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
-
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
-
     - name: Install kubectl
       run: |
         curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
         sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
     - name: Set up Kubeconfig
       run: |
         aws eks --region us-east-1 update-kubeconfig --name rollingback
-
-    - name: Deploy to Kubernetes
+    - name: Deploy Version 1
       run: |
-        kubectl apply -f deployment.yaml
+        kubectl apply -f deployment1.yaml
         kubectl apply -f service.yaml
-
+    - name: Deploy Version 2 (Canary)
+      run: |
+        kubectl apply -f deployment2.yaml
+        kubectl scale deployment/python-app-v2 --replicas=1
     - name: Get service info
       run: |
          kubectl get service python-app-service
+    - name: Monitor Canary
+      run: |
+         echo "Monitor canary version v2 for stability and performance"

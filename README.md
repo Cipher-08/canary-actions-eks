@@ -23,7 +23,7 @@ First, deploy the new version of your software to a section of your environment 
 <p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image2.png "image_tooltip")
+![alt_text](images/1.png "image_tooltip")
 
 
 After testing—be it functional, unit, or integration tests—and once your users have tested the feature and are confident in the new version, begin directing a small group of users to it. This group could consist of internal team members.

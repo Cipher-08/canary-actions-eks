@@ -1,4 +1,4 @@
-![alt_text](images/0.jpg "image_tooltip")
+
 ## **Choosing the Best Way to Update Your App: Canary vs. Rolling Out in Kubernetes**
 
 In Kubernetes, several techniques for deploying applications are available, each suited to different needs and scenarios.  These techniques include _blue-green deployments, canary deployments, rolling updates, A/B testing, and recreate deployments._ Each method offers its approach to managing updates and minimizing downtime.
